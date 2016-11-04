@@ -1,0 +1,26 @@
+img {
+	height: 200px;
+	width: 200px;
+	float: left;
+	border-style: solid;
+	border-width: 3px;
+	padding: 10px;
+}
+
+footer{
+	clear: both;
+}
+
+body {
+	background-color: grey;
+
+}
+
+footer {
+	text-align: center;
+}
+
+.stats{
+	padding-top: 30px;
+	text-align: center;
+}
