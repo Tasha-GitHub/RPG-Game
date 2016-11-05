@@ -5,45 +5,70 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ 	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
 </head>
 <body>
 	<div class="container-fluid" id = "background">
 		<div class="row">
-			<h1> Role Player Game </h1>
+			<h1> Pokemon Battle Royale! </h1>
 		</div>
 		<section class="row">
-			<div class="stagingArena col-md-4">
-				<p>staging</p>
+			<div class="col-md-2">	
 			</div>
-			<div class="col-md-4">
+			<div class="stagingArena col-md-3">
+				<p>staging</p>			
+			</div>
+			<div class="col-md-2 verses">
 				<p> empty </p>
 				
 			</div>
-			<div class="enemyArea col-md-4">
+			<div class="enemyArena col-md-3">
 				<p> enemy</p>
+			</div>
+			<div class="col-md-2">
+				
 			</div>
 			
 		</section>
-		<section class="row">
+		<div class="row sectionHeader">
+			<h2> Available Characters</h2>
+		</div>
+		<section class="row" id = "sector">
 			<div class="col-md-2">
 				
 			</div>
 			<div id ="pokemonHolder">
-				<div class="gameCharacter col-md-2" id = "bulbasaur">
-					<img src="assets/images/bulba.jpg" alt="bulbasaur">
+				<div class="gameCharacter col-md-2" id="bulbasaur">
+					<img src="assets/images/bulba-gif.gif" alt="bulbasaur">
+					<div class=" stats">
+						<p> 180 </p>
+						
+					</div>
 				</div>
 
-				<div class="gameCharacter col-md-2" id = "pikachu">
-					<img src="assets/images/pika.jpg" alt="pikachu">
+				<div class="gameCharacter col-md-2" id="pikachu">
+					<img src="assets/images/pika-ele.gif" alt="pikachu">
+					<div class=" stats">
+						<p> 180 </p>
+						
+					</div>
 				</div>
 
-				<div class="gameCharacter col-md-2" id = "squirtle">
-					<img src="assets/images/squirtle.png" alt="squirtle">
+				<div class="gameCharacter col-md-2" id="charmander">
+					<img src="assets/images/char.gif" alt="charmander">
+					<div class=" stats">
+						<p> 180 </p>
+						
+					</div>
 				</div>
 
-				<div class="gameCharacter col-md-2" id = "eevee">
-					<img src="assets/images/eevee.jpg" alt="eevee">
+				<div class="gameCharacter col-md-2" id="eevee">
+					<img src="assets/images/eevee-gif.gif" alt="eevee">
+					<div class=" stats">
+						<p> 180 </p>
+						
+					</div>
 				</div>
 			</div>
 			<div class="col-md-2">
@@ -51,7 +76,7 @@
 			</div>	
 
 		</section>
-		<div class="stats">
+		<div class=" row update">
 			<p>this is where our stats will appear</p>
 			
 		</div>

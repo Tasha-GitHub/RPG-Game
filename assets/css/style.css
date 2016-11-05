@@ -1,26 +1,49 @@
 img {
-	height: 200px;
-	width: 200px;
-	float: left;
-	border-style: solid;
-	border-width: 3px;
-	padding: 10px;
+	height: 100px;
+	width: 100px;
 }
 
 footer{
 	clear: both;
+	text-align: center;
 }
 
 body {
-	background-color: grey;
+	background-image: url(../images/background.jpg);
 
 }
 
-footer {
-	text-align: center;
-}
-
-.stats{
+.update{
 	padding-top: 30px;
 	text-align: center;
 }
+
+h2 {
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	padding: 20px 0px 40px 0px;
+
+}
+
+.gameCharacter{
+	float: left;
+	border-style: solid;
+	border-width: 3px;
+	padding: 10px;
+	height: 150px;
+	width: 150px;
+
+
+}
+
+#sector{
+	background-color: white;
+	border-style: solid;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-width: 3px;
+}
+
