@@ -1,16 +1,20 @@
-img {
-	height: 100px;
-	width: 100px;
+html {
+  height: 100%;
 }
 
-footer{
-	clear: both;
-	text-align: center;
-}
 
 body {
 	background-image: url(../images/background.jpg);
+	background-size: 100%;
+    background-repeat: no-repeat;
+  	min-height: 100%;
+ 	display: flex;
+  	flex-direction: column;
 
+}
+
+.content {
+  flex: 1;
 }
 
 .update{
@@ -28,6 +32,18 @@ h1 {
 
 }
 
+img {
+	height: 100px;
+	width: 100px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+footer{
+	clear: both;
+	text-align: center;
+}
 .gameCharacter{
 	float: left;
 	border-style: solid;
@@ -45,5 +61,23 @@ h1 {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-width: 3px;
+}
+
+.stagingArena{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.enemyArena{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#pokemonHolder{
+	display: flex; 
+	align-items: center;
+	justify-content: center;
 }
 
