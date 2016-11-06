@@ -50,7 +50,7 @@ $(".gameCharacter").click(function(){
 		$(this).appendTo(".enemyArena");
 		$(this).addClass("mainEnemy");
 		var pokeValue = $(this).attr("id");
-		$(".verses").html('<h2> V.S. </h2> <button class="btn btn-primary" id= "attack">Attack!</button>');
+		$(".verses").html('<div> <h2> V.S. </h2> </div><div><button class="btn btn-primary" id= "attack">Attack!</button></div>');
 		enemyAttack = pokemon[pokeValue].attack;
 		enemyHP = pokemon[pokeValue].HP;
 		enemyCounterPower = pokemon[pokeValue].counter;
