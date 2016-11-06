@@ -26,7 +26,6 @@ body {
 
 h2 {
 	text-align: center;
-	clear:both;
 }
 
 h1 {
@@ -43,9 +42,7 @@ button{
 img {
 	height: 100px;
 	width: 100px;
-	display: block;
-    margin-left: auto;
-    margin-right: auto
+
 }
 
 .gameCharacter{
@@ -55,13 +52,11 @@ img {
 	padding: 10px;
 	height: 150px;
 	width: 150px;
-
-
 }
 
 #sector{
-	background-color: white;
-	border-style: solid;
+	background-color: #DFE1DA;
+	border-style: solid solid solid solid;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-width: 3px;
@@ -92,10 +87,18 @@ img {
 
 .update{
 	font-size: 16px;
-	padding-top: 10px;
+	background-color: #5A9097;
+	border-width: 5px;
+	border-style: solid solid solid solid;
+	border-color: #CD5238;
+	margin-top: 10px;
 }
 
 .row{
 	margin: 0px;
 	padding: 0px;
+}
+
+.endingDiv{
+	margin-top: 100px;
 }

@@ -23,10 +23,9 @@ $(".gameCharacter").click(function(){
 	 if (characterChosen === false && opponentStaged === false) {
 	 	// button picks player and makes other three enimies 
 		$(this).appendTo(".stagingArena");
-		$(this).addClass("mainCharacter")
+		$(this).addClass("mainCharacter");
 		$("#pokemonHolder").children().addClass("enemy");
 		$(".sectionHeader").html("<h2> Available Opponents </h2>");
-		
 		//styling for main character
 		$(".mainCharacter").css("background-color","white");
 		//styling for enemies 
@@ -46,6 +45,8 @@ $(".gameCharacter").click(function(){
 
 		//picks out stagged enemy && makes sure player cant trigger onclick after both characters are set
 	 } else if (characterChosen === true && opponentStaged === false) {
+		// -----------need to stop user from clicking main character as enemy---
+
 		$(".enemyArena").html(" ");
 		$(this).appendTo(".enemyArena");
 		$(this).addClass("mainEnemy");
@@ -56,6 +57,10 @@ $(".gameCharacter").click(function(){
 		enemyCounterPower = pokemon[pokeValue].counter;
 		opponentStaged = true;
 		$(".update").html("<div>" + "Your Attack Power is " + userAttack+"</div>" + "<div>" + "Your HP is " + userHP+"</div>" + "<div>" + "Your Enemies HP is " + enemyHP +"</div>" );
+		// hides oppnents section once last pokemon is up for battle
+		if (roundCount === 2) {
+			$(".oponents").hide();
+		}
 		console.log(enemyAttack);
 		console.log(enemyHP);
 		console.log(enemyCounterPower);	
@@ -94,21 +99,35 @@ $(".verses").on("click", "#attack",function(){
 		// updates progress bar with new health 
 		$(".update").html();
 
+
+
 		//when enemy faints
 		if(enemyHP <= 0){
 			console.log("enemy fainted");
 			opponentStaged = false;
 			$(".mainEnemy").remove();
 			$(".enemyArena").html("Please Pick A New Opponent!");
+			roundCount++;
 		}
 		// when main character faints 
 		if (userHP <=0){
 			console.log("you fainted");
-			$("body").html('<div> <p> Game Over! </p> </div>  <div> <button class="btn btn-primary" id="restart"> Start all Over!</button> </div>');
+			$("body").html('<div class="endingDiv"> <p> Game Over! </p> </div>  <div> <button class="btn btn-primary" id="restart"> Start all Over!</button> </div>');
 			$("body").css({"color": "white", "background-color": "black", "background-image" : "url(assets/images/pika-faint.jpg)",
 			"background-size" : "300px 300px" , "background-repeat": "no-repeat", "background-attachment": "fixed",
    			 "background-position": "50% 50%"});
 		}
+
+
+		// if all enemies are defeated
+		if(roundCount === 3) {
+			console.log("you won, you earned a pokebadge!");
+			$("body").html('<div class="endingDiv"> <p> You Won! </p> </div>  <div> <button class="btn btn-primary" id="restart"> Start all Over!</button> </div>');
+			$("body").css({"color": "white", "background-color": "black", "background-image" : "url(assets/images/poke-badge.png)",
+			"background-size" : "300px 300px" , "background-repeat": "no-repeat", "background-attachment": "fixed",
+   			 "background-position": "50% 50%"});
+		}
+
 	}
 
 });
