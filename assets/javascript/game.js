@@ -1,9 +1,9 @@
 var opponentHP= 100;
 var roundCount =0;
-var pokemon = {"eevee":{ "attack" : 40 , "counter" : 15, "HP" : 180},
-				"pikachu":{ "attack" : 15 , "counter" : 10, "HP" : 120},
-				"charmander":{ "attack" : 30 , "counter" : 5, "HP" : 150},
-				"bulbasaur":{ "attack" : 20 , "counter" : 20, "HP" : 100}
+var pokemon = {"eevee":{ "attack" : 20 , "counter" : 5, "HP" : 180},
+				"pikachu":{ "attack" : 20 , "counter" : 7, "HP" : 120},
+				"charmander":{ "attack" : 30 , "counter" : 15, "HP" : 150},
+				"bulbasaur":{ "attack" : 20 , "counter" : 10, "HP" : 100}
 				};
 var endGame ="false";
 var characterChosen =false;
@@ -45,8 +45,6 @@ $(document).ready(function() {
 			userCounterPower = pokemon[pokeValue].counter;
 			characterChosen = true;
 
-			console.log("userattack is " + userAttack + "userHP is " + userHP)
-
 
 			//picks out stagged enemy && makes sure player cant trigger onclick after both characters are set
 		 } else if (characterChosen === true && opponentStaged === false) {
@@ -69,9 +67,6 @@ $(document).ready(function() {
 				if (roundCount === 2) {
 					$(".oponents").hide();
 
-
-
-					console.log("enemyAttack is " + enemyAttack + "enemyHP is " + enemyHP)
 				}
 			}	
 		 }
@@ -88,29 +83,15 @@ $(document).ready(function() {
 		}
 
 		else {
-
-			//makes your attack grow everyround  
-			userAttack += userBaseAttack
-			console.log("user attack power" + userAttack);
-			console.log("enemyAttack is " + enemyAttack + "enemyHP is " + enemyHP)
-			console.log("userattack is " + userAttack + "userHP is " + userHP)
-			console.log("_----------user  attack function ran---------")
 			
 			//enemy new stats 
 			enemyHP -= (userAttack - enemyCounterPower);
-			console.log("_----------enemy hp function ran---------")
-			console.log("enemy new hp" + enemyHP)
-			console.log("enemyAttack is " + enemyAttack + "enemyHP is " + enemyHP)
-			console.log("userattack is " + userAttack + "userHP is " + userHP)
-
+			
 			//main characters health depreciation upon attack
-			userHP -=(enemyAttack - userCounterPower);
-			console.log("your new hp" + userHP);
-			console.log("enemyAttack is " + enemyAttack + "enemyHP is " + enemyHP)
-			console.log("userattack is " + userAttack + "userHP is " + userHP)
-			console.log("_----------user HP function ran---------")
+			userHP -= (enemyAttack - userCounterPower);
 
-
+						//makes your attack grow everyround  
+			userAttack += userBaseAttack;
 
 			//updates update section with new stats
 			$(".update").html("<div>" + "Your Attack Power is " + userAttack+"</div>" + "<div>" + "Your HP is " + userHP+"</div>" + "<div>" + "Your Enemies HP is " + enemyHP +"</div>" );
