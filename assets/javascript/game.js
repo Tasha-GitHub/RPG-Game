@@ -1,3 +1,4 @@
+//global variables
 var opponentHP= 100;
 var roundCount =0;
 var pokemon = {"eevee":{ "attack" :  20, "counter" : 5, "HP" : 100},
@@ -24,7 +25,7 @@ var enemyProgress;
 
 $(document).ready(function() {
 
-	//enables tool tip to let user select main character
+	//enables tool tip to help user select main character
 	$('[data-toggle="tooltip"]').tooltip();
 
 
@@ -66,12 +67,14 @@ $(document).ready(function() {
 				$(this).appendTo(".enemyArena");
 				$(this).addClass("mainEnemy");
 				enemyProgress = $(this).children().children()[0];
+				//grab poke-stats for battle and assign to user(attack,HP,counter)
 				var pokeValue = $(this).attr("id");
-				$(".verses").html('<div> <h2> V.S. </h2> </div><div><button class="btn btn-primary" id= "attack">Attack!</button></div>');
 				enemyAttack = pokemon[pokeValue].attack;
 				enemyHP = pokemon[pokeValue].HP;
 				enemyCounterPower = pokemon[pokeValue].counter;
 				opponentStaged = true;
+				//updates text on screen
+				$(".verses").html('<div> <h2> V.S. </h2> </div><div><button class="btn btn-primary" id= "attack">Attack!</button></div>');
 				$(".update").html("<div>" + "Your Attack Power is " + userAttack+"</div>" + "<div>" + "Your HP is " + userHP+"</div>" + "<div>" + "Your Enemies HP is " + enemyHP +"</div>" );
 				// hides oppnents section once last pokemon is up for battle
 				if (roundCount === 2) {
@@ -81,7 +84,7 @@ $(document).ready(function() {
 		 }
 
 	 
-		//removes all tool tips once player has selected character
+		//removes all tool tips once player has selected main character
 		$('[data-toggle="tooltip"]').tooltip('destroy');
 
 
@@ -104,7 +107,7 @@ $(document).ready(function() {
 			//main characters health depreciation upon attack
 			userHP -= (enemyAttack - userCounterPower);
 
-						//makes your attack grow everyround  
+			//makes your attack grow everyround  
 			userAttack += userBaseAttack;
 
 			//updates update section with new stats
@@ -120,7 +123,6 @@ $(document).ready(function() {
 
 			//when enemy faints
 			if(enemyHP <= 0){
-				console.log("enemy fainted");
 				opponentStaged = false;
 				$(".mainEnemy").remove();
 				$(".enemyArena").html("Please Pick A New Opponent!");
@@ -130,7 +132,6 @@ $(document).ready(function() {
 
 			// when main character faints 
 			if (userHP <=0){
-				console.log("you fainted");
 				$("body").html('<div class="endingDiv"> <p> Game Over! </p> </div>  <div> <button class="btn btn-primary" id="restart"> Start all Over!</button> </div>');
 				$("body").css({"color": "white", "background-color": "black", "background-image" : "url(assets/images/pika-faint.jpg)",
 				"background-size" : "300px 300px" , "background-repeat": "no-repeat", "background-attachment": "fixed",
@@ -140,7 +141,6 @@ $(document).ready(function() {
 
 			// if all enemies are defeated
 			if(roundCount === 3) {
-				console.log("you won, you earned a pokebadge!");
 				$("body").html('<div class="endingDiv"> <p> You Won! </p> </div>  <div> <button class="btn btn-primary" id="restart"> Start all Over!</button> </div>');
 				$("body").css({"color": "white", "background-color": "black", "background-image" : "url(assets/images/poke-badge.png)",
 				"background-size" : "300px 300px" , "background-repeat": "no-repeat", "background-attachment": "fixed",
@@ -154,7 +154,6 @@ $(document).ready(function() {
 
 	// when they click on the start over button
 	$("body").on("click", "#restart",function(){	
-		console.log("restart butotn clicked");
 		location.reload();
 
 	});
