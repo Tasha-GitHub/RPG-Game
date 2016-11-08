@@ -1,9 +1,9 @@
 var opponentHP= 100;
 var roundCount =0;
-var pokemon = {"eevee":{ "attack" : 20 , "counter" : 5, "HP" : 180},
-				"pikachu":{ "attack" : 20 , "counter" : 7, "HP" : 120},
-				"charmander":{ "attack" : 30 , "counter" : 15, "HP" : 150},
-				"bulbasaur":{ "attack" : 20 , "counter" : 10, "HP" : 100}
+var pokemon = {"eevee":{ "attack" :  20, "counter" : 5, "HP" : 100},
+				"pikachu":{ "attack" : 15 , "counter" : 6, "HP" : 100},
+				"charmander":{ "attack" : 12 , "counter" : 7, "HP" : 100},
+				"bulbasaur":{ "attack" : 10 , "counter" : 8, "HP" : 100}
 				};
 var endGame ="false";
 var characterChosen =false;
@@ -20,7 +20,15 @@ var mainPokemon;
 var characterProgress;
 var enemyProgress;
 
+
+
 $(document).ready(function() {
+
+	//enables tool tip to let user select main character
+	$('[data-toggle="tooltip"]').tooltip();
+
+
+
 	//sets up the character selection process
 	$(".gameCharacter").click(function(){
 		 if (characterChosen === false && opponentStaged === false) {
@@ -46,6 +54,8 @@ $(document).ready(function() {
 			characterChosen = true;
 
 
+
+
 			//picks out stagged enemy && makes sure player cant trigger onclick after both characters are set
 		 } else if (characterChosen === true && opponentStaged === false) {
 			// stops user from clicking on maincharacter and setting to enemy
@@ -66,10 +76,14 @@ $(document).ready(function() {
 				// hides oppnents section once last pokemon is up for battle
 				if (roundCount === 2) {
 					$(".oponents").hide();
-
 				}
 			}	
 		 }
+
+	 
+		//removes all tool tips once player has selected character
+		$('[data-toggle="tooltip"]').tooltip('destroy');
+
 
 	 });
 
@@ -94,7 +108,7 @@ $(document).ready(function() {
 			userAttack += userBaseAttack;
 
 			//updates update section with new stats
-			$(".update").html("<div>" + "Your Attack Power is " + userAttack+"</div>" + "<div>" + "Your HP is " + userHP+"</div>" + "<div>" + "Your Enemies HP is " + enemyHP +"</div>" );
+			$(".update").html("<div>" + "Your Attack Power is " + userAttack +"</div>" + "<div>" + "Your HP is " + userHP+"</div>" + "<div>" + "Your Enemies HP is " + enemyHP +"</div>" );
 
 			//updates progress bar with main characters new health 
 			 $(characterProgress).html(userHP);
