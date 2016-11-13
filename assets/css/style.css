@@ -25,6 +25,20 @@ body {
 /* end of sticky footer */ 
 
 
+/*---------bootstrap overides------*/
+
+.container-fluid{
+	margin:0px;
+	padding: 0px;
+}
+
+.row{
+	margin: 0px;
+	padding: 0px;
+}
+
+/*------text styling---------*/
+
 h2 {
 	text-align: center;
 	font-family: 'Press Start 2P', cursive;
@@ -37,6 +51,8 @@ h1 {
 
 }
 
+/*-------image and button styles---*/
+
 button{
 	clear: both;
 }
@@ -46,6 +62,8 @@ img {
 	width: 100px;
 
 }
+
+/*-------Div Styling----------*/
 
 .gameCharacter{
 	border-style: solid;
@@ -81,10 +99,6 @@ img {
 
 }
 
-.container-fluid{
-	margin:0px;
-	padding: 0px;
-}
 
 .update{
 	font-size: 16px;
@@ -95,10 +109,6 @@ img {
 	margin-top: 10px;
 }
 
-.row{
-	margin: 0px;
-	padding: 0px;
-}
 
 .endingDiv{
 	margin-top: 100px;
